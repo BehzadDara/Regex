@@ -10,13 +10,13 @@ fox is the red fox. foxeses";
 
 // . [match any single char]
 
-var dotMarkRegex = new Regex(@".even", RegexOptions.Compiled);
+var dotMarkRegex = new Regex(@".even", RegexOptions.Compiled | RegexOptions.IgnoreCase);
 Console.WriteLine("sample of . in regex:\n");
 PrintWords(words, dotMarkRegex);
 Console.WriteLine("-------------------------------------");
 
 // ? [match zero or one char]
-var questionMarkRegex = new Regex(@"/?even", RegexOptions.Compiled);
+var questionMarkRegex = new Regex(@"/?even", RegexOptions.Compiled | RegexOptions.IgnoreCase);
 Console.WriteLine("sample of ? in regex:\n");
 PrintWords(words, questionMarkRegex);
 Console.WriteLine("-------------------------------------");
