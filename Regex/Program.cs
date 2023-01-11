@@ -1,7 +1,7 @@
 ﻿using System.Text.RegularExpressions;
 
-var words = new List<string>() { "Seven", "even", "Maven", "Amen", "eleven" };
-
+var words = new List<string>() { "Seven", "even", "Maven", "Amen", "eleven"};
+var words2 = new List<string>() { "are", "far", "sir", "and", "door"};
 var content = @"Foxes are omnivorous mammals belonging to several genera
 of the family Canidae. Foxes have a flattened skull, upright triangular ears,
 a pointed, slightly upturned snout, and a long bushy tail. Foxes live on every
@@ -32,10 +32,34 @@ Console.WriteLine("sample of + in regex:\n");
 PrintContent(content, plusMarkRegex);
 Console.WriteLine("-------------------------------------");
 
-// * [match one or more char]
+// * [match zero or more char]
 var starMarkRegex = new Regex("fox(es)*", RegexOptions.Compiled | RegexOptions.IgnoreCase);
 Console.WriteLine("sample of * in regex:\n");
 PrintContent(content, starMarkRegex);
+Console.WriteLine("-------------------------------------");
+
+// ^ [match start of word]
+var startRegex = new Regex("^ar", RegexOptions.Compiled | RegexOptions.IgnoreCase);
+Console.WriteLine("sample of ^ in regex:\n");
+PrintWords(words2, startRegex);
+Console.WriteLine("-------------------------------------");
+
+// $ [match end of word]
+var endRegex = new Regex("ar$", RegexOptions.Compiled | RegexOptions.IgnoreCase);
+Console.WriteLine("sample of $ in regex:\n");
+PrintWords(words2, endRegex);
+Console.WriteLine("-------------------------------------");
+
+// [] [match alphabet of words]
+var alphabetRegex = new Regex("[ai]r", RegexOptions.Compiled | RegexOptions.IgnoreCase);
+Console.WriteLine("sample of [] in regex:\n");
+PrintWords(words2, alphabetRegex);
+Console.WriteLine("-------------------------------------");
+
+// [^] [match alphabet of words]
+var notAlphabetRegex = new Regex("[^ai]r", RegexOptions.Compiled | RegexOptions.IgnoreCase);
+Console.WriteLine("sample of [^] in regex:\n");
+PrintWords(words2, notAlphabetRegex);
 Console.WriteLine("-------------------------------------");
 
 
