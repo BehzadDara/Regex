@@ -88,6 +88,11 @@ Console.WriteLine("sample of \\s\\s+ in regex:\n");
 PrintContent(content2, backSlashSSPlus);
 Console.WriteLine("-------------------------------------");
 
+// replace \s\s+ [replace white spaces with one space]
+Console.WriteLine("sample of replace \\s\\s+ in regex:\n");
+PrintReplaceWithSpace(content2, backSlashSSPlus);
+Console.WriteLine("-------------------------------------");
+
 // \w [match chars]
 var backSlashW = new Regex(@"\w", RegexOptions.Compiled | RegexOptions.IgnoreCase);
 Console.WriteLine("sample of \\w in regex:\n");
@@ -145,4 +150,10 @@ static void PrintContentCaptures(string content, Regex regex)
 
         match = match.NextMatch();
     }
+}
+
+static void PrintReplaceWithSpace(string content, Regex regex)
+{
+    var result = regex.Replace(content, " ");
+    Console.WriteLine($"{result}");
 }
