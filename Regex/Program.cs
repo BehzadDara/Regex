@@ -76,10 +76,16 @@ Console.WriteLine("sample of \\s in regex:\n");
 PrintContent(content2, backSlashS);
 Console.WriteLine("-------------------------------------");
 
-// \s+ [match multi spaces]
+// \s+ [match one or more spaces]
 var backSlashSPlus = new Regex(@"\s+", RegexOptions.Compiled | RegexOptions.IgnoreCase);
 Console.WriteLine("sample of \\s+ in regex:\n");
 PrintContent(content2, backSlashSPlus);
+Console.WriteLine("-------------------------------------");
+
+// \s\s+ [match more than one spaces]
+var backSlashSSPlus = new Regex(@"\s\s+", RegexOptions.Compiled | RegexOptions.IgnoreCase);
+Console.WriteLine("sample of \\s\\s+ in regex:\n");
+PrintContent(content2, backSlashSSPlus);
 Console.WriteLine("-------------------------------------");
 
 // \w [match chars]
